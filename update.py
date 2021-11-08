@@ -107,12 +107,12 @@ def main():
     is_release = args.release
 
     filenames = []
-    progress = tqdm(range(2007 if args.all else now.year, now.year + 2))
+    progress = tqdm(range(2007, now.year + 2))
     for i in progress:
         progress.set_description(f"Updating {i} data")
         filenames += list(update_data(i))
     progress.set_description("Updating holiday-cn.ics")
-    filenames.append(update_main_ics(now.year - 4, now.year + 1))
+    filenames.append(update_main_ics(2007, now.year + 1))
     print("")
     subprocess.run(["hub", "add", *filenames], check=True)
     subprocess.run(
