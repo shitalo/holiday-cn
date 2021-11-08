@@ -1,6 +1,6 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Lonese/holiday-cn/master/schema.json",
-    "$id": "https://raw.githubusercontent.com/Lonese/holiday-cn/master/2020.json",
+    "$schema": "https://raw.githubusercontent.com/Lonense/holiday-cn/master/schema.json",
+    "$id": "https://raw.githubusercontent.com/Lonense/holiday-cn/master/2020.json",
     "year": 2020,
     "papers": [
         "http://www.gov.cn/zhengce/content/2019-11/21/content_5454164.htm",
