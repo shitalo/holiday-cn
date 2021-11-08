@@ -62,7 +62,31 @@ def _iter_date_ranges(days: Sequence[dict]) -> Iterator[Tuple[dict, dict]]:
 
 def generate_ics(days: Sequence[dict], filename: Text) -> None:
     """Generate ics from days."""
-    url = 'https://p10-calendars.icloud.com/holiday/CN_zh.ics'
+    cal = Calendar()
+    cal.add("X-WR-CALNAME", "中国法定节假日")
+    cal.add("X-WR-CALDESC", "中国法定节假日数据，自动每日抓取国务院公告。")
+    cal.add("VERSION", "2.0")
+    cal.add("METHOD", "PUBLISH")
+    cal.add("CLASS", "PUBLIC")
+
+    cal.add_component(_create_timezone())
+    days = sorted(days, key=lambda x: x["date"])
+
+    for fr, to in _iter_date_ranges(days):
+        start = _cast_date(fr["date"])
+        end = _cast_date(to["date"]) + datetime.timedelta(days=1)
+
+        name = fr["name"] + "假期"
+        if not fr["isOffDay"]:
+            name = "上班(补" + name + ")"
+        cal.add_component(_create_event(name, start, end))
+
+    with open(filename, "wb") as f:
+        f.write(cal.to_ical())
+
+def generate_main_ics(days: Sequence[dict], filename: Text) -> None:
+    """Generate ics from days."""
+    url = 'https://calendars.icloud.com/holidays/cn_zh.ics'
     cal = Calendar.from_ical(requests.get(url).text)
     days = sorted(days, key=lambda x: x["date"])
 

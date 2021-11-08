@@ -14,7 +14,7 @@ from zipfile import ZipFile
 from tqdm import tqdm
 
 from fetch_holidays import CustomJSONEncoder, fetch_holiday
-from generate_ics import generate_ics
+from generate_ics import generate_ics, generate_main_ics
 
 
 class ChinaTimezone(tzinfo):
@@ -82,7 +82,7 @@ def update_main_ics(fr_year, to_year):
             all_days.extend(data.get("days"))
 
     filename = _file_path("holiday-cn.ics")
-    generate_ics(
+    generate_main_ics(
         all_days,
         filename,
     )
@@ -114,18 +114,6 @@ def main():
     progress.set_description("Updating holiday-cn.ics")
     filenames.append(update_main_ics(now.year - 4, now.year + 1))
     print("")
-
-    
-
-
-def pack_data(file):
-    """Pack data json in zip file."""
-
-    zip_file = ZipFile(file, "w")
-    for i in os.listdir(__dirname__):
-        if not re.match(r"\d+\.json", i):
-            continue
-        zip_file.write(_file_path(i), i)
 
 
 if __name__ == "__main__":
