@@ -40,11 +40,13 @@ interface Holidays {
 
 ## ICalendar 订阅
 
-网址格式参见上一节
+对应年份的节假日
 
-https://raw.githubusercontent.com/Lonense/holiday-cn/master/{年份}.ics 为对应年份的节假日
+    https://raw.githubusercontent.com/Lonense/holiday-cn/master/{年份}.ics 
+    
+2007年 至次年的节假日
 
-https://raw.githubusercontent.com/Lonense/holiday-cn/master/holiday-cn.ics 为 2007年 至次年的节假日
+    https://raw.githubusercontent.com/Lonense/holiday-cn/master/holiday-cn.ics
 
 感谢 @retanoj 的 ics 格式转换实现
 
