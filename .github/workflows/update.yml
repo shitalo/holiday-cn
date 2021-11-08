@@ -18,4 +18,4 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt -r dev-requirements.txt
       - name: Update
-        run: python ./sub.py   
+        run: python ./update.py   
