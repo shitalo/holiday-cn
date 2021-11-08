@@ -107,7 +107,7 @@ def main():
     is_release = args.release
 
     filenames = []
-    progress = tqdm(range(2007, now.year + 2))
+    progress = tqdm(range(2007 if args.all else now.year, now.year + 2))
     for i in progress:
         progress.set_description(f"Updating {i} data")
         filenames += list(update_data(i))
