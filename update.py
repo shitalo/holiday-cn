@@ -115,6 +115,12 @@ def main():
     filenames.append(update_main_ics(now.year - 4, now.year + 1))
     print("")
     subprocess.run(["hub", "add", *filenames], check=True)
+    diff = subprocess.run(
+        ["hub", "diff", "--stat", "--cached", "*.json", "*.ics"],
+        check=True,
+        stdout=subprocess.PIPE,
+        encoding="utf-8",
+    ).stdout
 
 if __name__ == "__main__":
     main()
