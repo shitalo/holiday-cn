@@ -118,10 +118,7 @@ def main():
     subprocess.run(
         [
             "hub",
-            "commit",
-            "-m",
-            "chore(release): update holiday data",
-            "-m" "[skip ci]",
+            "commit"
         ],
         check=True,
     )
