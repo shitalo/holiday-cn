@@ -118,7 +118,8 @@ def main():
     subprocess.run(
         [
             "hub",
-            "commit"
+            "commit",
+            "-m"
         ],
         check=True,
     )
