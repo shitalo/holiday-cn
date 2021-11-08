@@ -6,8 +6,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c8e9d9c51bd2d858c577/maintainability)](https://codeclimate.com/github/Lonese/holiday-cn/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c8e9d9c51bd2d858c577/test_coverage)](https://codeclimate.com/github/Lonese/holiday-cn/test_coverage)
 ![Maintenance](https://img.shields.io/maintenance/yes/2021.svg)
-
+Fork from NateScarlet/holiday-cn
 中国法定节假日数据 自动每日抓取国务院公告
+整合苹果自带节假日
 
 - [x] 提供 JSON 格式节假日数据
 - [x] CI 自动更新
@@ -45,10 +46,6 @@ interface Holidays {
 
     https://raw.githubusercontent.com/Lonese/holiday-cn/master/{年份}.json
 
-访问 github 不方便时可使用国内镜像仓库
-
-    https://Lonese.coding.net/p/github/d/holiday-cn/git/raw/master/{年份}.json
-
 或使用 JSDelivr：
  
     https://cdn.jsdelivr.net/gh/Lonese/holiday-cn@master/{年份}.json
@@ -67,4 +64,3 @@ interface Holidays {
 
 参见 [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
 
-[发布页面]: https://github.com/Lonese/holiday-cn/releases
