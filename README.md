@@ -38,11 +38,7 @@ interface Holidays {
 
 数据地址格式:
 
-    https://raw.githubusercontent.com/Lonese/holiday-cn/master/{年份}.json
-
-或使用 JSDelivr：
- 
-    https://cdn.jsdelivr.net/gh/Lonese/holiday-cn@master/{年份}.json
+    https://raw.githubusercontent.com/Lonense/holiday-cn/master/{年份}.json
 
 ## ICalendar 订阅
 
@@ -50,7 +46,7 @@ interface Holidays {
 
 `{年份}.ics` 为对应年份的节假日
 
-`holiday-cn.ics` 为 3 年前至次年的节假日
+`holiday-cn.ics` 为 2007年 至次年的节假日
 
 感谢 @retanoj 的 ics 格式转换实现
 
