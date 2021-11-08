@@ -27,7 +27,7 @@ def _create_event(event_name, start, end):
     event.add("DTSTAMP", start)
 
     # UID保证唯一
-    event["UID"] = f"{start}/{end}/Lonese/holiday-cn"
+    event["UID"] = f"{start}/{end}/Lonense/holiday-cn"
 
     return event
 

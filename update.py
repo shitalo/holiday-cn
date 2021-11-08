@@ -115,20 +115,11 @@ def main():
     filenames.append(update_main_ics(2007, now.year + 1))
     print("")
     subprocess.run(["hub", "add", *filenames], check=True)
-    diff = subprocess.run(
-        ["hub", "diff", "--stat", "--cached", "*.json", "*.ics"],
-        check=True,
-        stdout=subprocess.PIPE,
-        encoding="utf-8",
-    ).stdout
-    if not diff:
-        print("Already up to date.")
-        return
     subprocess.run(
         [
             "hub",
             "commit",
-            "-m", "update",
+            "-m","update"
         ],
         check=True,
     )
