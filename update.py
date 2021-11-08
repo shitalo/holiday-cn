@@ -119,7 +119,7 @@ def main():
         [
             "hub",
             "commit",
-            "-m"
+            "-m","update"
         ],
         check=True,
     )
