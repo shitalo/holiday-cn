@@ -1,5 +1,5 @@
 # holiday-cn 
-Fork from NateScarlet/holiday-cn(https://github.com/NateScarlet/holiday-cn)
+Fork from NateScarlet/holiday-cn <https://github.com/NateScarlet/holiday-cn>
 
 中国法定节假日数据 自动每日抓取国务院公告
 整合苹果自带节假日
@@ -36,17 +36,17 @@ interface Holidays {
 
 数据地址格式:
 
-    https://raw.githubusercontent.com/Lonense/holiday-cn/master/{年份}.json
+    https://raw.githubusercontent.com/Lonense/holiday-cn/main/{年份}.json
 
 ## ICalendar 订阅
 
 对应年份的节假日
 
-    https://raw.githubusercontent.com/Lonense/holiday-cn/master/{年份}.ics 
+    https://raw.githubusercontent.com/Lonense/holiday-cn/main/{年份}.ics 
     
 2007年 至次年的节假日
 
-    https://raw.githubusercontent.com/Lonense/holiday-cn/master/holiday-cn.ics
+    https://raw.githubusercontent.com/Lonense/holiday-cn/main/holiday-cn.ics
 
 感谢 @retanoj 的 ics 格式转换实现
 
