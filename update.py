@@ -114,7 +114,7 @@ def main():
     progress.set_description("Updating holiday-cn.ics")
     filenames.append(update_main_ics(now.year - 4, now.year + 1))
     print("")
-
+    subprocess.run(["hub", "add", *filenames], check=True)
 
 if __name__ == "__main__":
     main()
