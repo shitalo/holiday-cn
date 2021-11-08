@@ -1,12 +1,6 @@
-# holiday-cn
+# holiday-cn 
+Fork from NateScarlet/holiday-cn(https://github.com/NateScarlet/holiday-cn)
 
-[![Build Status](https://github.com/Lonese/holiday-cn/workflows/CI/badge.svg)](https://github.com/Lonese/holiday-cn/actions)
-[![Release](https://img.shields.io/github/release/Lonese/holiday-cn.svg)](https://github.com/Lonese/holiday-cn/releases/latest)
-[![CalVer](https://img.shields.io/badge/calver-YYYY.0M.0D-22bfda.svg)](http://calver.org)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c8e9d9c51bd2d858c577/maintainability)](https://codeclimate.com/github/Lonese/holiday-cn/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c8e9d9c51bd2d858c577/test_coverage)](https://codeclimate.com/github/Lonese/holiday-cn/test_coverage)
-![Maintenance](https://img.shields.io/maintenance/yes/2021.svg)
-Fork from NateScarlet/holiday-cn
 中国法定节假日数据 自动每日抓取国务院公告
 整合苹果自带节假日
 
