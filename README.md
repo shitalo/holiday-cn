@@ -6,8 +6,6 @@ Fork from NateScarlet/holiday-cn(https://github.com/NateScarlet/holiday-cn)
 
 - [x] 提供 JSON 格式节假日数据
 - [x] CI 自动更新
-- [x] 数据变化时自动发布新版本 ( `Watch` - `Release only` 以获取邮件提醒! )
-- [x] [发布页面]提供 JSON 打包下载
 
 数据格式:
 
