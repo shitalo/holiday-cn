@@ -71,7 +71,7 @@ def update_data(year: int) -> Iterator[str]:
     yield ics_filename
 
 
-def update_main_ics(fr_year, to_year):
+def update_main_ics(fr_year, to_year, nowyear):
     all_days = []
     for year in range(fr_year, to_year + 1):
         filename = _file_path(f"{year}.json")
@@ -85,6 +85,7 @@ def update_main_ics(fr_year, to_year):
     generate_main_ics(
         all_days,
         filename,
+        nowyear
     )
     return filename
 
@@ -112,7 +113,7 @@ def main():
         progress.set_description(f"Updating {i} data")
         filenames += list(update_data(i))
     progress.set_description("Updating holiday-cn.ics")
-    filenames.append(update_main_ics(2007, now.year + 1))
+    filenames.append(update_main_ics(now.year - 3, now.year + 1))
     print("")
     subprocess.run(["hub", "add", *filenames], check=True)
     diff = subprocess.run(
@@ -128,11 +129,12 @@ def main():
         [
             "hub",
             "commit",
-            "-m","update"
+            "-m", "update"
         ],
         check=True,
     )
     subprocess.run(["hub", "push"], check=True)
+
 
 if __name__ == "__main__":
     main()
