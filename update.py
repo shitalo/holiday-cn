@@ -113,7 +113,7 @@ def main():
         progress.set_description(f"Updating {i} data")
         filenames += list(update_data(i))
     progress.set_description("Updating holiday-cn.ics")
-    filenames.append(update_main_ics(now.year - 3, now.year + 1))
+    filenames.append(update_main_ics(now.year - 3, now.year + 1, now.year))
     print("")
     subprocess.run(["hub", "add", *filenames], check=True)
     diff = subprocess.run(
