@@ -19,7 +19,7 @@ def _create_timezone():
     return tz
 
 
-def _create_event(event_name, start, end, descrip=None):
+def _create_event(event_name, start, end, descrip=None, work=None):
     # 创建事件/日程
     event = Event()
     event.add("SUMMARY", event_name)
@@ -28,9 +28,11 @@ def _create_event(event_name, start, end, descrip=None):
     event.add("DTEND", end)
     # 创建时间
     event.add("DTSTAMP", start)
-    if(descrip):
+    if (descrip):
         event.add("DESCRIPTION", descrip)
     # UID保证唯一
+    if (work):
+        event.add("X-APPLE-SPECIAL-DAY", "WORK-HOLIDAY")
     event["UID"] = str(uuid.uuid4())
     return event
 
@@ -79,10 +81,10 @@ def generate_ics(days: Sequence[dict], filename: Text) -> None:
         start = _cast_date(fr["date"])
         end = _cast_date(to["date"]) + datetime.timedelta(days=1)
 
-        name = fr["name"] + "假期"
+        name = fr["name"] + "(休)"
         if not fr["isOffDay"]:
-            name = "上班(补" + name + ")"
-        cal.add_component(_create_event(name, start, end))
+            name = fr["name"] + "(班)"
+        cal.add_component(_create_event(name, start, end, work=True))
 
     with open(filename, "wb") as f:
         f.write(cal.to_ical())
@@ -142,7 +144,8 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         cal.add_component(_create_event(name, start, end, descrip))
 
         name = "母亲节"
-        start = _cast_date("%d-05-01" % year)+datetime.timedelta(days=13-_cast_date("%d-05-01" % year).weekday())
+        start = _cast_date("%d-05-01" % year)+datetime.timedelta(days=13 -
+                                                                 _cast_date("%d-05-01" % year).weekday())
         end = start
         cal.add_component(_create_event(name, start, end))
 
@@ -152,7 +155,8 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         cal.add_component(_create_event(name, start, end))
 
         name = "父亲节"
-        start = _cast_date("%d-06-01" % year)+datetime.timedelta(days=20-_cast_date("%d-06-01" % year).weekday())
+        start = _cast_date("%d-06-01" % year)+datetime.timedelta(days=20 -
+                                                                 _cast_date("%d-06-01" % year).weekday())
         end = start
         cal.add_component(_create_event(name, start, end))
 
@@ -195,7 +199,7 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         descrip = "辛亥革命%d周年" % (year-1911)
         cal.add_component(_create_event(name, start, end, descrip))
 
-        name= "一二·九运动纪念日"
+        name = "一二·九运动纪念日"
         start = _cast_date("%d-12-09" % year)
         end = start
         descrip = "一二·九运动%d周年" % (year-1935)
@@ -289,10 +293,10 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         start = _cast_date(fr["date"])
         end = _cast_date(to["date"]) + datetime.timedelta(days=1)
 
-        name = fr["name"] + "假期"
+        name = fr["name"] + "(休)"
         if not fr["isOffDay"]:
-            name = "上班(补" + name + ")"
-        cal.add_component(_create_event(name, start, end))
+            name = fr["name"] + "(班)"
+        cal.add_component(_create_event(name, start, end, work=True))
 
     with open(filename, "wb") as f:
         f.write(cal.to_ical())
