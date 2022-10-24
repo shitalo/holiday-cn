@@ -95,27 +95,27 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
     # url = 'https://calendars.icloud.com/holidays/cn_zh.ics'
     # cal = Calendar.from_ical(requests.get(url).text)
     cal = Calendar()
-    cal.add("X-WR-CALNAME", "中国节日")
-    cal.add("X-WR-CALDESC", "中国常用节日，并抓取国务院公告获取法定假期数据。")
+    cal.add("X-WR-CALNAME", "节日补充")
+    cal.add("X-WR-CALDESC", "补充节日数据")
     cal.add("VERSION", "2.0")
     cal.add("METHOD", "PUBLISH")
     cal.add("CLASS", "PUBLIC")
     cal.add_component(_create_timezone())
     for year in range(nowyear-3, nowyear + 2):
-        name = "元旦"
-        start = _cast_date("%d-01-01" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "元旦"
+        # start = _cast_date("%d-01-01" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "情人节"
         start = _cast_date("%d-02-14" % year)
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "妇女节"
-        start = _cast_date("%d-03-08" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "妇女节"
+        # start = _cast_date("%d-03-08" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "植树节"
         start = _cast_date("%d-03-12" % year)
@@ -132,16 +132,16 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "劳动节"
-        start = _cast_date("%d-05-01" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "劳动节"
+        # start = _cast_date("%d-05-01" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
-        name = "青年节"
-        start = _cast_date("%d-05-04" % year)
-        end = start
-        descrip = "五四运动%d周年纪念日" % (year - 1919)
-        cal.add_component(_create_event(name, start, end, descrip))
+        # name = "青年节"
+        # start = _cast_date("%d-05-04" % year)
+        # end = start
+        # descrip = "五四运动%d周年纪念日" % (year - 1919)
+        # cal.add_component(_create_event(name, start, end, descrip))
 
         name = "母亲节"
         start = _cast_date("%d-05-01" % year)+datetime.timedelta(days=13 -
@@ -149,10 +149,10 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "儿童节"
-        start = _cast_date("%d-06-01" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "儿童节"
+        # start = _cast_date("%d-06-01" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "父亲节"
         start = _cast_date("%d-06-01" % year)+datetime.timedelta(days=20 -
@@ -160,15 +160,15 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "建党节"
-        start = _cast_date("%d-07-01" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "建党节"
+        # start = _cast_date("%d-07-01" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
-        name = "建军节"
-        start = _cast_date("%d-08-01" % year)
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "建军节"
+        # start = _cast_date("%d-08-01" % year)
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "抗日战争胜利纪念日"
         start = _cast_date("%d-09-03" % year)
@@ -187,11 +187,11 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         descrip = "九·一八事变 1931年9月18日"
         cal.add_component(_create_event(name, start, end, descrip))
 
-        name = "国庆节"
-        start = _cast_date("%d-10-01" % year)
-        end = start
-        descrip = "建国%d周年" % (year - 1949)
-        cal.add_component(_create_event(name, start, end, descrip))
+        # name = "国庆节"
+        # start = _cast_date("%d-10-01" % year)
+        # end = start
+        # descrip = "建国%d周年" % (year - 1949)
+        # cal.add_component(_create_event(name, start, end, descrip))
 
         name = "辛亥革命纪念日"
         start = _cast_date("%d-10-10" % year)
@@ -221,15 +221,15 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "春节"
-        start = _cast_date(ZhDate(year, 1, 1).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "春节"
+        # start = _cast_date(ZhDate(year, 1, 1).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
-        name = "元宵节"
-        start = _cast_date(ZhDate(year, 1, 15).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "元宵节"
+        # start = _cast_date(ZhDate(year, 1, 15).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "龙抬头"
         start = _cast_date(ZhDate(year, 2, 2).to_datetime().date())
@@ -241,30 +241,30 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "端午节"
-        start = _cast_date(ZhDate(year, 5, 5).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "端午节"
+        # start = _cast_date(ZhDate(year, 5, 5).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
-        name = "七夕节"
-        start = _cast_date(ZhDate(year, 7, 7).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "七夕节"
+        # start = _cast_date(ZhDate(year, 7, 7).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "中元节"
         start = _cast_date(ZhDate(year, 7, 15).to_datetime().date())
         end = start
         cal.add_component(_create_event(name, start, end))
 
-        name = "中秋节"
-        start = _cast_date(ZhDate(year, 8, 15).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "中秋节"
+        # start = _cast_date(ZhDate(year, 8, 15).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
-        name = "重阳节"
-        start = _cast_date(ZhDate(year, 9, 9).to_datetime().date())
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "重阳节"
+        # start = _cast_date(ZhDate(year, 9, 9).to_datetime().date())
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
         name = "下元节"
         start = _cast_date(ZhDate(year, 10, 10).to_datetime().date())
@@ -281,22 +281,22 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
             end = start
             cal.add_component(_create_event(name, start, end))
 
-        name = "除夕"
-        start = _cast_date(
-            ZhDate(year, 1, 1).to_datetime().date()-datetime.timedelta(days=1))
-        end = start
-        cal.add_component(_create_event(name, start, end))
+        # name = "除夕"
+        # start = _cast_date(
+        #     ZhDate(year, 1, 1).to_datetime().date()-datetime.timedelta(days=1))
+        # end = start
+        # cal.add_component(_create_event(name, start, end))
 
     days = sorted(days, key=lambda x: x["date"])
 
-    for fr, to in _iter_date_ranges(days):
-        start = _cast_date(fr["date"])
-        end = _cast_date(to["date"]) + datetime.timedelta(days=1)
+    # for fr, to in _iter_date_ranges(days):
+    #     start = _cast_date(fr["date"])
+    #     end = _cast_date(to["date"]) + datetime.timedelta(days=1)
 
-        name = fr["name"] + "(休)"
-        if not fr["isOffDay"]:
-            name = fr["name"] + "(班)"
-        cal.add_component(_create_event(name, start, end, work=True))
+    #     name = fr["name"] + "(休)"
+    #     if not fr["isOffDay"]:
+    #         name = fr["name"] + "(班)"
+    #     cal.add_component(_create_event(name, start, end, work=True))
 
     with open(filename, "wb") as f:
         f.write(cal.to_ical())
