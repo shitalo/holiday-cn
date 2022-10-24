@@ -1,6 +1,8 @@
 # holiday-cn 
 Fork from NateScarlet/holiday-cn <https://github.com/NateScarlet/holiday-cn>
-！！！苹果自带节假日已支持法定节假日抓取，该项目已停止维护和更新。
+
+##！！！苹果自带节假日已支持法定节假日抓取，该项目已停止维护和更新。
+
 中国法定节假日数据 自动每日抓取国务院公告
 整合苹果自带节假日
 
