@@ -272,14 +272,9 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         cal.add_component(_create_event(name, start, end))
 
         name = "腊八节"
-        if (ZhDate(year-1, 12, 8).to_datetime().year == year):
-            start = _cast_date(ZhDate(year-1, 12, 8).to_datetime().date())
-            end = start
-            cal.add_component(_create_event(name, start, end))
-        elif (ZhDate(year, 12, 8).to_datetime().year == year):
-            start = _cast_date(ZhDate(year, 12, 8).to_datetime().date())
-            end = start
-            cal.add_component(_create_event(name, start, end))
+        start = _cast_date(ZhDate(year, 12, 8).to_datetime().date())
+        end = start
+        cal.add_component(_create_event(name, start, end))
 
         # name = "除夕"
         # start = _cast_date(
