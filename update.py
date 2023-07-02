@@ -109,9 +109,9 @@ def main():
 
     filenames = []
     progress = tqdm(range(2007 if args.all else now.year, now.year + 2))
- //   for i in progress:
- //       progress.set_description(f"Updating {i} data")
- //       filenames += list(update_data(i))
+ #   for i in progress:
+ #       progress.set_description(f"Updating {i} data")
+ #       filenames += list(update_data(i))
     progress.set_description("Updating holiday-cn.ics")
     filenames.append(update_main_ics(now.year - 3, now.year + 1, now.year))
     print("")
