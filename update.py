@@ -114,26 +114,6 @@ def main():
  #       filenames += list(update_data(i))
     progress.set_description("Updating holiday-cn.ics")
     filenames.append(update_main_ics(now.year - 3, now.year + 1, now.year))
-    print("")
-    subprocess.run(["hub", "add", *filenames], check=True)
-    diff = subprocess.run(
-        ["hub", "diff", "--stat", "--cached", "*.json", "*.ics"],
-        check=True,
-        stdout=subprocess.PIPE,
-        encoding="utf-8",
-    ).stdout
-    if not diff:
-        print("Already up to date.")
-        return
-    subprocess.run(
-        [
-            "hub",
-            "commit",
-            "-m", "update"
-        ],
-        check=True,
-    )
-    subprocess.run(["hub", "push"], check=True)
 
 
 if __name__ == "__main__":
