@@ -267,7 +267,7 @@ def generate_main_ics(days: Sequence[dict], filename: Text, nowyear) -> None:
         # cal.add_component(_create_event(name, start, end))
 
         name = "下元节"
-        start = _cast_date(ZhDate(year, 10, 10).to_datetime().date())
+        start = _cast_date(ZhDate(year, 10, 15).to_datetime().date())
         end = start
         cal.add_component(_create_event(name, start, end))
 
